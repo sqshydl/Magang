@@ -2,20 +2,22 @@ package models
 
 import (
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type UserIntModel struct {
-	UserID         string    `json:"user_id" gorm:"primaryKey"` // Use string as primary key
-	Username       string    `json:"username"`
-	Password       string    `json:"password"`
-	Name           string    `json:"name"`
-	Phone          int       `json:"phone"`
-	NIK            int       `json:"NIK"`
-	Role           bool      `json:"role"`
-	BankAcc        int       `json:"bank_account"`
-	BankAccName    string    `json:"bank_account_name"`
-	Status         bool      `json:"status"`
-	CreatedAt      time.Time `json:"created_date"`
-	LastActiveTime time.Time `json:"last_active"`
-	LastActiveIP   string    `json:"last_active_ip"`
+	UserID         uuid.UUID `gorm:"primaryKey;type:uuid;default:uuid_generate_v4()"`
+	Username       string    `gorm:"unique"`
+	Password       string
+	Name           string
+	Phone          int
+	NIK            int
+	Role           bool
+	BankAcc        int
+	BankAccName    string
+	Status         bool
+	CreatedAt      time.Time
+	LastActiveIP   string
+	LastActiveTime time.Time
 }

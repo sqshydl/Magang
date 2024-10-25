@@ -14,9 +14,12 @@ func init() {
 func main() {
 	r := gin.Default()
 
+	//User Intermediaris (UserInt) CRUD endpoints
 	r.POST("/UserInt", controllers.UserIntCreate)
 	r.GET("/UserInt", controllers.UserIntIndex)
 	r.GET("/UserInt/:username", controllers.UserIntGet)
+	r.DELETE("/UserInt/:username", controllers.UserIntDelete)
+	r.PUT("/UserInt/:username", controllers.UserIntUpdate)
 
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
