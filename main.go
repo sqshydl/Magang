@@ -28,5 +28,5 @@ func main() {
 	r.DELETE("/UserCentBank/:username", controllers.UserCentBankDelete)
 	r.PUT("/UserCentBank/:username", controllers.UserCentBankUpdate)
 
-	r.Run() // listen and serve on 0.0.0.0:8080
+	r.Run()
 }

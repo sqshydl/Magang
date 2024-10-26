@@ -6,7 +6,6 @@ import (
 	"github.com/google/uuid"
 )
 
-// User represents the structure for the Users table
 type UserCentBankModel struct {
 	UserID         uuid.UUID `gorm:"primaryKey;type:uuid;default:uuid_generate_v4()"` // Unique user identifier
 	Name           string    `gorm:"type:varchar(255)"`                               // User's name
