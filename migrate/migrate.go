@@ -13,4 +13,9 @@ func init() {
 func main() {
 	initializers.DB.AutoMigrate(&models.UserIntModel{})
 	initializers.DB.AutoMigrate(&models.UserCentBankModel{})
+	initializers.DB.AutoMigrate(&models.Notification{})
+	initializers.DB.AutoMigrate(&models.Transaction{})
+	initializers.DB.AutoMigrate(&models.Validator{})
+	initializers.DB.AutoMigrate(&models.IssuingIntermediaries{})
+	initializers.DB.AutoMigrate(&models.Redeem{})
 }

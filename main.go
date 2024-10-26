@@ -35,5 +35,33 @@ func main() {
 	r.DELETE("/notification/:notification_id", controllers.NotificationDelete)
 	r.PUT("/notification/:notification_id", controllers.NotificationUpdate)
 
+	//transaction CRUD endpoints
+	r.POST("/transaction", controllers.TransactionCreate)
+	r.GET("/transaction", controllers.TransactionIndex)
+	r.GET("/transaction/:transaction_id", controllers.TransactionGet)
+	r.DELETE("/transaction/:transaction_id", controllers.TransactionDelete)
+	r.PUT("/transaction/:transaction_id", controllers.TransactionUpdate)
+
+	//validator CRUD endpoints
+	r.POST("/validator", controllers.ValidatorCreate)
+	r.GET("/validator", controllers.ValidatorIndex)
+	r.GET("/validator/:validators_id", controllers.ValidatorGet)
+	r.DELETE("/validator/:validators_id", controllers.ValidatorDelete)
+	r.PUT("/validator/:validators_id", controllers.ValidatorUpdate)
+
+	//issuing intermediaries CRUD endpoints
+	r.POST("/issuingintermediaries", controllers.IssuingIntermediaryCreate)
+	r.GET("/issuingintermediaries", controllers.IssuingIntermediaryIndex)
+	r.GET("/issuingintermediaries/:issuing_intermediaries_id", controllers.IssuingIntermediaryGet)
+	r.DELETE("/issuingintermediaries/:issuing_intermediaries_id", controllers.IssuingIntermediaryDelete)
+	r.PUT("/issuingintermediaries/:issuing_intermediaries_id", controllers.IssuingIntermediaryUpdate)
+
+	//redeem CRUD endpoints
+	r.POST("/redeem", controllers.RedeemCreate)
+	r.GET("/redeem", controllers.RedeemIndex)
+	r.GET("/redeem/:redeem_id", controllers.RedeemGet)
+	r.DELETE("/redeem/:redeem_id", controllers.RedeemDelete)
+	r.PUT("/redeem/:redeem_id", controllers.RedeemUpdate)
+
 	r.Run()
 }
