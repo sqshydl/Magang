@@ -15,18 +15,25 @@ func main() {
 	r := gin.Default()
 
 	//User Intermediaris (UserInt) CRUD endpoints
-	r.POST("/UserInt", controllers.UserIntCreate)
-	r.GET("/UserInt", controllers.UserIntIndex)
-	r.GET("/UserInt/:username", controllers.UserIntGet)
-	r.DELETE("/UserInt/:username", controllers.UserIntDelete)
-	r.PUT("/UserInt/:username", controllers.UserIntUpdate)
+	r.POST("/userint", controllers.UserIntCreate)
+	r.GET("/userint", controllers.UserIntIndex)
+	r.GET("/userint/:username", controllers.UserIntGet)
+	r.DELETE("/userint/:username", controllers.UserIntDelete)
+	r.PUT("/userint/:username", controllers.UserIntUpdate)
 
 	//User Central Bank (UserCentBank) CRUD endpoints
-	r.POST("/UserCentBank", controllers.UserCentBankCreate)
-	r.GET("/UserCentBank", controllers.UserCentBankIndex)
-	r.GET("/UserCentBank/:username", controllers.UserCentBankGet)
-	r.DELETE("/UserCentBank/:username", controllers.UserCentBankDelete)
-	r.PUT("/UserCentBank/:username", controllers.UserCentBankUpdate)
+	r.POST("/usercentbank", controllers.UserCentBankCreate)
+	r.GET("/usercentbank", controllers.UserCentBankIndex)
+	r.GET("/usercentbank/:username", controllers.UserCentBankGet)
+	r.DELETE("/usercentbank/:username", controllers.UserCentBankDelete)
+	r.PUT("/usercentbank/:username", controllers.UserCentBankUpdate)
+
+	//notification CRUD endpoints
+	r.POST("/notification", controllers.NotificationCreate)
+	r.GET("/notification", controllers.NotificationIndex)
+	r.GET("/notification/:notification_id", controllers.NotificationGet)
+	r.DELETE("/notification/:notification_id", controllers.NotificationDelete)
+	r.PUT("/notification/:notification_id", controllers.NotificationUpdate)
 
 	r.Run()
 }

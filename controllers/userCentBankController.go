@@ -55,7 +55,6 @@ func UserCentBankCreate(c *gin.Context) {
 
 	c.JSON(200, gin.H{
 		"message": "User created successfully",
-		"user_id": userCentBank.UserID,
 		"user":    userCentBank,
 	})
 }
