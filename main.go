@@ -21,5 +21,12 @@ func main() {
 	r.DELETE("/UserInt/:username", controllers.UserIntDelete)
 	r.PUT("/UserInt/:username", controllers.UserIntUpdate)
 
+	//User Central Bank (UserCentBank) CRUD endpoints
+	r.POST("/UserCentBank", controllers.UserCentBankCreate)
+	r.GET("/UserCentBank", controllers.UserCentBankIndex)
+	r.GET("/UserCentBank/:username", controllers.UserCentBankGet)
+	r.DELETE("/UserCentBank/:username", controllers.UserCentBankDelete)
+	r.PUT("/UserCentBank/:username", controllers.UserCentBankUpdate)
+
 	r.Run() // listen and serve on 0.0.0.0:8080
 }

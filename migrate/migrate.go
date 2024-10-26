@@ -12,5 +12,5 @@ func init() {
 
 func main() {
 	initializers.DB.AutoMigrate(&models.UserIntModel{})
-	initializers.DB.AutoMigrate(&models.UserCentBank{})
+	initializers.DB.AutoMigrate(&models.UserCentBankModel{})
 }
