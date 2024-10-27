@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/squishydal/MAGANG/auth"
 	"github.com/squishydal/MAGANG/initializers"
 	"github.com/squishydal/MAGANG/models"
 	"gorm.io/gorm"
@@ -30,10 +31,16 @@ func UserCreate(c *gin.Context) {
 		return
 	}
 
+	hashedPassword, err := auth.HashPassword(userInput.Password)
+	if err != nil {
+		c.JSON(500, gin.H{"error": "Failed to hash password"})
+		return
+	}
+
 	user := models.User{
 		UserID:           uuid.New(),
 		Username:         userInput.Username,
-		Password:         userInput.Password, // Assumes password is hashed before saving
+		Password:         hashedPassword, // Assumes password is hashed before saving
 		Name:             userInput.Name,
 		Phone:            userInput.Phone,
 		NIK:              userInput.NIK,
@@ -115,6 +122,15 @@ func UserUpdate(c *gin.Context) {
 		}
 		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return
+	}
+
+	if updateData.Password != "" {
+		hashedPassword, err := auth.HashPassword(updateData.Password)
+		if err != nil {
+			c.JSON(500, gin.H{"error": "Failed to hash password"})
+			return
+		}
+		updateData.Password = hashedPassword
 	}
 
 	initializers.DB.Model(&user).Updates(updateData)
