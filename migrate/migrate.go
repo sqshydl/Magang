@@ -18,4 +18,5 @@ func main() {
 	initializers.DB.AutoMigrate(&models.Validator{})
 	initializers.DB.AutoMigrate(&models.IssuingIntermediaries{})
 	initializers.DB.AutoMigrate(&models.Redeem{})
+	initializers.DB.AutoMigrate(&models.User{})
 }
